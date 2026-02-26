@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,6 +19,9 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <script>
+      document.documentElement.classList.add("js-ready");
+    </script>
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -78,7 +81,7 @@
     </aside>
 
     <main>
-      <section class="hero reveal-on-scroll" id="home">
+      <section class="hero" id="home">
         <svg class="hero-art" viewBox="0 0 1200 800" aria-hidden="true">
           <path d="M110 90 L520 90 L520 460 L110 460 Z" />
           <path d="M680 180 L1040 180 L1040 620 L680 620 Z" />
@@ -103,7 +106,7 @@
         </div>
       </section>
 
-      <section class="about section-light reveal-on-scroll" id="about">
+      <section class="about section-light" id="about">
         <div class="container about-layout">
           <div class="about-text reveal-on-scroll">
             <p class="about-quote">"Dropped out at 13. Been building ever since."</p>
@@ -135,63 +138,87 @@
         </div>
       </section>
 
-      <section class="projects section-mid reveal-on-scroll" id="projects">
+      <section class="projects section-mid" id="projects">
         <div class="container">
           <h2 class="section-title reveal-on-scroll">Work</h2>
 
           <div class="projects-grid">
             <article class="project-card reveal-on-scroll">
-              <h3>Box Game</h3>
-              <p class="project-tag">Game Development</p>
-              <p class="project-copy">A browser-based game built from scratch. Where it all started.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <h3>Nayaya AI</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/nayaya-ai</p>
+              <a href="https://github.com/meghaboi/nayaya-ai" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
 
             <article class="project-card reveal-on-scroll">
-              <h3>Box Game Main</h3>
-              <p class="project-tag">Game Development</p>
-              <p class="project-copy">Expanded version with refined mechanics and a complete game loop.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <h3>MUNEIGO</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/MUNEIGO</p>
+              <a href="https://github.com/meghaboi/MUNEIGO" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
 
             <article class="project-card reveal-on-scroll">
-              <h3>Harry Potter Chat App</h3>
-              <p class="project-tag">AI &middot; Python</p>
-              <p class="project-copy">
-                Conversational AI app built around the Harry Potter universe using LLMs.
-              </p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <h3>Telugu Social</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/telugu-social</p>
+              <a href="https://github.com/meghaboi/telugu-social" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
 
             <article class="project-card reveal-on-scroll">
-              <h3>Gen AI RAG App</h3>
-              <p class="project-tag">AI Engineering</p>
-              <p class="project-copy">
-                Query your own documents with LLMs using a Retrieval-Augmented Generation pipeline.
-              </p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <h3>MinuteTrails</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/MinuteTrails</p>
+              <a href="https://github.com/meghaboi/MinuteTrails" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+            </article>
+
+            <article class="project-card reveal-on-scroll">
+              <h3>Dialectus AI</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/dialectus-ai</p>
+              <a href="https://github.com/meghaboi/dialectus-ai" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+            </article>
+
+            <article class="project-card reveal-on-scroll">
+              <h3>Saturn Prep</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/saturn-prep</p>
+              <a href="https://github.com/meghaboi/saturn-prep" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
 
             <article class="project-card reveal-on-scroll">
               <h3>Modular RAG App v2</h3>
-              <p class="project-tag">AI Engineering</p>
-              <p class="project-copy">
-                Production-ready modular RAG architecture. Cleaner, faster, more extensible.
-              </p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/modular_rag_app_v2</p>
+              <a href="https://github.com/meghaboi/modular_rag_app_v2" target="_blank" rel="noreferrer"
+                >GitHub &rarr;</a
+              >
             </article>
 
             <article class="project-card reveal-on-scroll">
-              <h3>Pamidi AI</h3>
-              <p class="project-tag">AI &middot; Python</p>
-              <p class="project-copy">Personal AI project - built to solve a specific problem.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+              <h3>CA MRR Website</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/ca-mrr-website</p>
+              <a href="https://github.com/meghaboi/ca-mrr-website" target="_blank" rel="noreferrer">GitHub &rarr;</a>
+            </article>
+
+            <article class="project-card reveal-on-scroll">
+              <h3>Anonymous Student Events App</h3>
+              <p class="project-tag">Private Repo</p>
+              <p class="project-copy">This repository is private right now. Public release is coming soon.</p>
+              <span class="project-link-disabled" aria-disabled="true">Coming soon</span>
+            </article>
+
+            <article class="project-card reveal-on-scroll">
+              <h3>Neta Navigator</h3>
+              <p class="project-tag">GitHub Project</p>
+              <p class="project-copy">Repository: meghaboi/neta-navigator</p>
+              <a href="https://github.com/meghaboi/neta-navigator" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="skills section-base reveal-on-scroll" id="skills">
+      <section class="skills section-base" id="skills">
         <div class="container">
           <h2 class="section-title reveal-on-scroll">Skills</h2>
 
@@ -214,7 +241,7 @@
         </div>
       </section>
 
-      <section class="contact section-light reveal-on-scroll" id="contact">
+      <section class="contact section-light" id="contact">
         <div class="container contact-wrap">
           <h2 class="section-title reveal-on-scroll">Let's Build Something.</h2>
           <p class="contact-copy reveal-on-scroll">Open to freelance projects, collabs, and interesting problems.</p>
@@ -252,4 +279,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-

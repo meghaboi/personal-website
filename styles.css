@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --base-dark: #0d1117;
   --mid-dark: #1c2333;
   --light-section: #f5f2ec;
@@ -458,6 +458,14 @@ section {
   color: var(--gold);
 }
 
+.project-link-disabled {
+  color: var(--muted-dark);
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  cursor: not-allowed;
+}
+
 .skills .section-title {
   margin-bottom: 1.2rem;
 }
@@ -561,6 +569,11 @@ section {
 }
 
 .reveal-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+.js-ready .reveal-on-scroll {
   opacity: 0;
   transform: translateY(24px);
   transition:
@@ -569,7 +582,7 @@ section {
   transition-delay: var(--tag-delay, 0s);
 }
 
-.reveal-on-scroll.is-visible {
+.js-ready .reveal-on-scroll.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
@@ -643,7 +656,7 @@ section {
   }
 
   .hero-line,
-  .reveal-on-scroll {
+  .js-ready .reveal-on-scroll {
     opacity: 1 !important;
     transform: none !important;
   }

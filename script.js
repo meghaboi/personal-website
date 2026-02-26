@@ -1,4 +1,5 @@
-﻿const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.documentElement.classList.add("js-ready");
 
 const siteHeader = document.querySelector(".site-header");
 const progressBar = document.querySelector(".scroll-progress");
@@ -13,15 +14,22 @@ const formMessage = document.getElementById("form-message");
 const formSuccess = document.getElementById("form-success");
 
 function handleScrollUI() {
-  const scrollY = window.scrollY;
-  siteHeader.classList.toggle("scrolled", scrollY > 80);
+  if (siteHeader) {
+    siteHeader.classList.toggle("scrolled", window.scrollY > 80);
+  }
 
-  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollableHeight > 0 ? (scrollY / scrollableHeight) * 100 : 0;
-  progressBar.style.width = `${progress}%`;
+  if (progressBar) {
+    const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollableHeight > 0 ? (window.scrollY / scrollableHeight) * 100 : 0;
+    progressBar.style.width = `${progress}%`;
+  }
 }
 
 function openMobileMenu() {
+  if (!menuToggle || !mobileOverlay || !mobileSidebar) {
+    return;
+  }
+
   mobileOverlay.classList.add("is-open");
   mobileSidebar.classList.add("is-open");
   mobileSidebar.setAttribute("aria-hidden", "false");
@@ -30,6 +38,10 @@ function openMobileMenu() {
 }
 
 function closeMobileMenu() {
+  if (!menuToggle || !mobileOverlay || !mobileSidebar) {
+    return;
+  }
+
   mobileOverlay.classList.remove("is-open");
   mobileSidebar.classList.remove("is-open");
   mobileSidebar.setAttribute("aria-hidden", "true");
@@ -37,28 +49,30 @@ function closeMobileMenu() {
   document.body.style.overflow = "";
 }
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-  if (isOpen) {
-    closeMobileMenu();
-    return;
-  }
+if (menuToggle && mobileOverlay && mobileSidebar && sidebarClose) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    if (isOpen) {
+      closeMobileMenu();
+      return;
+    }
 
-  openMobileMenu();
-});
+    openMobileMenu();
+  });
 
-sidebarClose.addEventListener("click", closeMobileMenu);
-mobileOverlay.addEventListener("click", closeMobileMenu);
+  sidebarClose.addEventListener("click", closeMobileMenu);
+  mobileOverlay.addEventListener("click", closeMobileMenu);
 
-mobileNavLinks.forEach((link) => {
-  link.addEventListener("click", closeMobileMenu);
-});
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+}
 
 if (reduceMotion) {
   revealTargets.forEach((target) => {
     target.classList.add("is-visible");
   });
-} else {
+} else if (revealTargets.length > 0) {
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
       entries.forEach((entry) => {
@@ -80,37 +94,38 @@ if (reduceMotion) {
   });
 }
 
-contactForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  formMessage.textContent = "Sending...";
+if (contactForm && formMessage && formSuccess) {
+  contactForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    formMessage.textContent = "Sending...";
 
-  const formData = new FormData(contactForm);
+    const formData = new FormData(contactForm);
 
-  try {
-    const response = await fetch(contactForm.action, {
-      method: "POST",
-      headers: {
-        Accept: "application/json"
-      },
-      body: formData
-    });
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        headers: {
+          Accept: "application/json"
+        },
+        body: formData
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (response.ok && result.success) {
-      contactForm.hidden = true;
-      formSuccess.hidden = false;
-      formMessage.textContent = "";
-      return;
+      if (response.ok && result.success) {
+        contactForm.hidden = true;
+        formSuccess.hidden = false;
+        formMessage.textContent = "";
+        return;
+      }
+
+      formMessage.textContent = result.message || "Message could not be sent right now.";
+    } catch (error) {
+      formMessage.textContent = "Message could not be sent right now.";
     }
-
-    formMessage.textContent = result.message || "Message could not be sent right now.";
-  } catch (error) {
-    formMessage.textContent = "Message could not be sent right now.";
-  }
-});
+  });
+}
 
 window.addEventListener("scroll", handleScrollUI, { passive: true });
 window.addEventListener("resize", handleScrollUI);
 handleScrollUI();
-
