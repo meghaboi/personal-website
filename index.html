@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,12 +6,17 @@
     <title>Meghanadh Pamidi | Game Dev & AI Engineer, Hyderabad</title>
     <meta
       name="description"
-      content="Meghanadh Pamidi — self-taught game developer and AI engineer based in Hyderabad. Building games, AI pipelines, and backend systems since age 13."
+      content="Meghanadh Pamidi - self-taught game developer and AI engineer based in Hyderabad. Building games, AI pipelines, and backend systems since age 13."
     />
+    <meta
+      name="keywords"
+      content="Meghanadh Pamidi, game developer Hyderabad, AI engineer India, RAG developer, Python developer, Unity developer"
+    />
+    <link rel="canonical" href="meghaboi.github.io/personal-website" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -21,152 +26,225 @@
         "@type": "Person",
         "name": "Meghanadh Pamidi",
         "jobTitle": "Game Developer & AI Engineer",
-        "url": "https://example.com",
+        "url": "meghaboi.github.io/personal-website",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Hyderabad",
+          "addressRegion": "Telangana",
           "addressCountry": "IN"
-        },
-        "sameAs": ["https://github.com/meghaboi", "https://discord.com/users/meghaboi"]
+        }
       }
     </script>
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true"></div>
-    <div class="cursor-dot" aria-hidden="true"></div>
 
     <header class="site-header" id="top">
       <nav class="navbar container" aria-label="Primary">
-        <a href="#top" class="brand" aria-label="Homepage">
+        <a href="#top" class="brand" aria-label="Meghanadh Pamidi Home">
           <span class="brand-gold">MEGHANADH</span>
           <span class="brand-cream">PAMIDI</span>
         </a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Toggle menu</span>
-        </button>
+
         <ul class="nav-links desktop-nav">
           <li><a href="#projects">Work</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="mobile-sidebar"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </nav>
-      <div class="mobile-menu" id="mobile-menu" hidden>
-        <ul>
-          <li><a href="#projects">Work</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
     </header>
 
+    <div class="mobile-overlay" aria-hidden="true"></div>
+
+    <aside class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
+      <button class="sidebar-close" type="button" aria-label="Close navigation">X</button>
+      <ul class="mobile-nav-links">
+        <li><a href="#projects" style="--item: 0">Work</a></li>
+        <li><a href="#about" style="--item: 1">About</a></li>
+        <li><a href="#contact" style="--item: 2">Contact</a></li>
+      </ul>
+    </aside>
+
     <main>
-      <section class="hero section-grain" id="hero">
+      <section class="hero reveal-on-scroll" id="home">
+        <svg class="hero-art" viewBox="0 0 1200 800" aria-hidden="true">
+          <path d="M110 90 L520 90 L520 460 L110 460 Z" />
+          <path d="M680 180 L1040 180 L1040 620 L680 620 Z" />
+          <path d="M220 620 L500 340 L780 620" />
+        </svg>
+
         <div class="container hero-content">
-          <p class="eyebrow">HYDERABAD, IN · EST. 2020</p>
-          <h1>
-            <span class="hero-line">Game Dev.</span>
-            <span class="hero-line">AI Engineer.</span>
-            <span class="hero-line">Builder.</span>
+          <p class="hero-eyebrow">HYDERABAD, IN &middot; DEVELOPER</p>
+          <h1 class="hero-title">
+            <span class="hero-line" style="--line-delay: 0s">Game Dev.</span>
+            <span class="hero-line" style="--line-delay: 0.16s">AI Engineer.</span>
+            <span class="hero-line" style="--line-delay: 0.32s">Builder.</span>
           </h1>
           <p class="hero-subtext">
-            Self-taught since 13. I build games, train models, and ship products — sometimes all at once.
+            Self-taught since 13. I build games, train models, and write the backend that holds it all together.
           </p>
-          <a class="cta" href="#projects">See My Work →</a>
+          <a class="hero-cta" href="#projects">See My Work &rarr;</a>
         </div>
-        <div class="hero-geo" aria-hidden="true"></div>
+
+        <div class="scroll-indicator" aria-hidden="true">
+          <span></span>
+        </div>
       </section>
 
-      <section class="about reveal-section" id="about">
-        <div class="container about-grid">
-          <blockquote>“Dropped out at 13. Been building ever since.”</blockquote>
-          <div>
-            <p>
-              I started with game dev because I wanted to make the games I couldn’t find. That turned into backend
-              systems, then AI, then whatever the next interesting problem was. Based in Hyderabad, open to remote
-              work and interesting projects.
+      <section class="about section-light reveal-on-scroll" id="about">
+        <div class="container about-layout">
+          <div class="about-text reveal-on-scroll">
+            <p class="about-quote">"Dropped out at 13. Been building ever since."</p>
+            <p class="about-description">
+              I started with game dev because I wanted to make the games I could not find. That obsession grew into AI
+              pipelines, backend systems, and whatever the next interesting problem turned out to be. Based in
+              Hyderabad, open to freelance work and interesting collabs.
             </p>
-            <div class="stat-chips">
-              <span>4+ YEARS BUILDING</span>
-              <span>GAME DEV + AI + BACKEND + WEB</span>
-              <span>HYDERABAD</span>
-              <span>OPEN TO WORK</span>
-            </div>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-chip reveal-on-scroll">
+              <p class="stat-value">4+ Years</p>
+              <p class="stat-label">Building</p>
+            </article>
+            <article class="stat-chip reveal-on-scroll">
+              <p class="stat-value">Game Dev</p>
+              <p class="stat-label">Where it started</p>
+            </article>
+            <article class="stat-chip reveal-on-scroll">
+              <p class="stat-value">AI + Backend</p>
+              <p class="stat-label">Where it went</p>
+            </article>
+            <article class="stat-chip reveal-on-scroll">
+              <p class="stat-value">Hyderabad</p>
+              <p class="stat-label">Based in</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="projects reveal-section section-grain" id="projects">
+      <section class="projects section-mid reveal-on-scroll" id="projects">
         <div class="container">
-          <h2>Selected Work</h2>
-          <div class="project-grid">
-            <article class="project-card">
+          <h2 class="section-title reveal-on-scroll">Work</h2>
+
+          <div class="projects-grid">
+            <article class="project-card reveal-on-scroll">
               <h3>Box Game</h3>
-              <p class="tag">GAME DEVELOPMENT</p>
-              <p>A browser-based game built from scratch. Where it all started.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">Game Development</p>
+              <p class="project-copy">A browser-based game built from scratch. Where it all started.</p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
-            <article class="project-card">
+
+            <article class="project-card reveal-on-scroll">
               <h3>Box Game Main</h3>
-              <p class="tag">GAME DEVELOPMENT</p>
-              <p>Expanded version with improved mechanics and game loop.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">Game Development</p>
+              <p class="project-copy">Expanded version with refined mechanics and a complete game loop.</p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
-            <article class="project-card">
+
+            <article class="project-card reveal-on-scroll">
               <h3>Harry Potter Chat App</h3>
-              <p class="tag">AI / PYTHON</p>
-              <p>Conversational AI app built around the Harry Potter universe using LLMs.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">AI &middot; Python</p>
+              <p class="project-copy">
+                Conversational AI app built around the Harry Potter universe using LLMs.
+              </p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
-            <article class="project-card">
+
+            <article class="project-card reveal-on-scroll">
               <h3>Gen AI RAG App</h3>
-              <p class="tag">AI ENGINEERING</p>
-              <p>Retrieval-Augmented Generation app — query your own documents with LLMs.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">AI Engineering</p>
+              <p class="project-copy">
+                Query your own documents with LLMs using a Retrieval-Augmented Generation pipeline.
+              </p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
-            <article class="project-card">
+
+            <article class="project-card reveal-on-scroll">
               <h3>Modular RAG App v2</h3>
-              <p class="tag">AI ENGINEERING</p>
-              <p>Improved modular architecture for RAG pipelines. Production-ready structure.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">AI Engineering</p>
+              <p class="project-copy">
+                Production-ready modular RAG architecture. Cleaner, faster, more extensible.
+              </p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
-            <article class="project-card">
+
+            <article class="project-card reveal-on-scroll">
               <h3>Pamidi AI</h3>
-              <p class="tag">AI / PYTHON</p>
-              <p>Personal AI project — details and updates live in the repo.</p>
-              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">View on GitHub →</a>
+              <p class="project-tag">AI &middot; Python</p>
+              <p class="project-copy">Personal AI project - built to solve a specific problem.</p>
+              <a href="https://github.com/meghaboi" target="_blank" rel="noreferrer">GitHub &rarr;</a>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="skills reveal-section" id="skills">
+      <section class="skills section-base reveal-on-scroll" id="skills">
         <div class="container">
-          <h2>Core Stack</h2>
-          <div class="skill-tags">
-            <span>PYTHON</span><span>UNITY</span><span>C#</span><span>GAME DEVELOPMENT</span><span>LLMS</span><span>RAG</span>
-            <span>VECTOR DATABASES</span><span>BACKEND</span><span>REST APIS</span><span>WEB DEVELOPMENT</span><span>GIT</span
-            ><span>AI ENGINEERING</span>
+          <h2 class="section-title reveal-on-scroll">Skills</h2>
+
+          <div class="skills-row">
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0s">Python</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.05s">Unity</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.1s">C#</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.15s">Game Development</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.2s">LLMs</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.25s">RAG Pipelines</span>
+          </div>
+          <div class="skills-row">
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.3s">Vector Databases</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.35s">Backend Development</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.4s">REST APIs</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.45s">Web Development</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.5s">Git</span>
+            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.55s">AI Engineering</span>
           </div>
         </div>
       </section>
 
-      <section class="contact reveal-section section-grain" id="contact">
+      <section class="contact section-light reveal-on-scroll" id="contact">
         <div class="container contact-wrap">
-          <h2>Let’s Build Something.</h2>
-          <p>Open to freelance projects, collabs, and interesting problems.</p>
-          <form action="https://formspree.io/f/xldlvzkz" method="POST" class="contact-form">
-            <label>
-              <span class="sr-only">Your Email</span>
-              <input type="email" name="email" placeholder="Your email" required />
-            </label>
-            <label>
-              <span class="sr-only">Message</span>
-              <textarea name="message" placeholder="What are you building?" rows="4" required></textarea>
-            </label>
-            <button type="submit" class="cta">Get in Touch →</button>
+          <h2 class="section-title reveal-on-scroll">Let's Build Something.</h2>
+          <p class="contact-copy reveal-on-scroll">Open to freelance projects, collabs, and interesting problems.</p>
+
+          <form
+            id="contact-form"
+            class="contact-form reveal-on-scroll"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+          >
+            <input type="hidden" name="access_key" value="eddec169-eee4-4766-82fc-b24af02dcced" />
+            <input type="hidden" name="subject" value="New message from portfolio" />
+            <input type="hidden" name="redirect" value="false" />
+
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message &rarr;</button>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
           </form>
-          <p class="discord">Discord: <span>@meghaboi</span></p>
+
+          <div id="form-success" class="form-success" hidden>
+            <p>Message sent. I'll get back to you soon.</p>
+          </div>
         </div>
       </section>
     </main>
@@ -174,3 +252,4 @@
     <script src="script.js"></script>
   </body>
 </html>
+

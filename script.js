@@ -1,90 +1,116 @@
-const navbar = document.querySelector('.navbar');
-const progress = document.querySelector('.scroll-progress');
-const cursor = document.querySelector('.cursor-dot');
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-menu a');
+﻿const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  navbar.classList.toggle('scrolled', y > 8);
+const siteHeader = document.querySelector(".site-header");
+const progressBar = document.querySelector(".scroll-progress");
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileOverlay = document.querySelector(".mobile-overlay");
+const mobileSidebar = document.querySelector(".mobile-sidebar");
+const sidebarClose = document.querySelector(".sidebar-close");
+const mobileNavLinks = document.querySelectorAll(".mobile-nav-links a");
+const revealTargets = document.querySelectorAll(".reveal-on-scroll");
+const contactForm = document.getElementById("contact-form");
+const formMessage = document.getElementById("form-message");
+const formSuccess = document.getElementById("form-success");
 
-  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-  const ratio = scrollable > 0 ? (y / scrollable) * 100 : 0;
-  progress.style.width = `${ratio}%`;
-});
+function handleScrollUI() {
+  const scrollY = window.scrollY;
+  siteHeader.classList.toggle("scrolled", scrollY > 80);
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-
-if (!reduceMotion && desktopPointer) {
-  let targetX = window.innerWidth / 2;
-  let targetY = window.innerHeight / 2;
-  let currentX = targetX;
-  let currentY = targetY;
-
-  window.addEventListener('mousemove', (event) => {
-    targetX = event.clientX;
-    targetY = event.clientY;
-    cursor.style.opacity = '1';
-  });
-
-  const animateCursor = () => {
-    currentX += (targetX - currentX) * 0.15;
-    currentY += (targetY - currentY) * 0.15;
-    cursor.style.transform = `translate(${currentX}px, ${currentY}px)`;
-    requestAnimationFrame(animateCursor);
-  };
-  animateCursor();
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? (scrollY / scrollableHeight) * 100 : 0;
+  progressBar.style.width = `${progress}%`;
 }
 
-menuToggle.addEventListener('click', () => {
-  const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-  menuToggle.setAttribute('aria-expanded', String(!expanded));
-  if (expanded) {
-    mobileMenu.setAttribute('hidden', '');
-  } else {
-    mobileMenu.removeAttribute('hidden');
+function openMobileMenu() {
+  mobileOverlay.classList.add("is-open");
+  mobileSidebar.classList.add("is-open");
+  mobileSidebar.setAttribute("aria-hidden", "false");
+  menuToggle.setAttribute("aria-expanded", "true");
+  document.body.style.overflow = "hidden";
+}
+
+function closeMobileMenu() {
+  mobileOverlay.classList.remove("is-open");
+  mobileSidebar.classList.remove("is-open");
+  mobileSidebar.setAttribute("aria-hidden", "true");
+  menuToggle.setAttribute("aria-expanded", "false");
+  document.body.style.overflow = "";
+}
+
+menuToggle.addEventListener("click", () => {
+  const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+  if (isOpen) {
+    closeMobileMenu();
+    return;
+  }
+
+  openMobileMenu();
+});
+
+sidebarClose.addEventListener("click", closeMobileMenu);
+mobileOverlay.addEventListener("click", closeMobileMenu);
+
+mobileNavLinks.forEach((link) => {
+  link.addEventListener("click", closeMobileMenu);
+});
+
+if (reduceMotion) {
+  revealTargets.forEach((target) => {
+    target.classList.add("is-visible");
+  });
+} else {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealTargets.forEach((target) => {
+    revealObserver.observe(target);
+  });
+}
+
+contactForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  formMessage.textContent = "Sending...";
+
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      headers: {
+        Accept: "application/json"
+      },
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      contactForm.hidden = true;
+      formSuccess.hidden = false;
+      formMessage.textContent = "";
+      return;
+    }
+
+    formMessage.textContent = result.message || "Message could not be sent right now.";
+  } catch (error) {
+    formMessage.textContent = "Message could not be sent right now.";
   }
 });
 
-mobileLinks.forEach((link) => {
-  link.addEventListener('click', () => {
-    menuToggle.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('hidden', '');
-  });
-});
+window.addEventListener("scroll", handleScrollUI, { passive: true });
+window.addEventListener("resize", handleScrollUI);
+handleScrollUI();
 
-const sections = document.querySelectorAll('.reveal-section');
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        if (entry.target.id === 'skills') {
-          revealSkills();
-        }
-      }
-    });
-  },
-  { threshold: 0.25 }
-);
-
-sections.forEach((section) => observer.observe(section));
-
-function revealSkills() {
-  const tags = document.querySelectorAll('.skill-tags span');
-  tags.forEach((tag, index) => {
-    setTimeout(() => {
-      tag.classList.add('visible');
-    }, index * 120);
-  });
-}
-
-const hero = document.querySelector('.hero');
-if (!reduceMotion && window.innerWidth > 900) {
-  window.addEventListener('scroll', () => {
-    const offset = Math.min(window.scrollY * 0.2, 90);
-    hero.style.backgroundPosition = `center ${offset}px`;
-  });
-}
