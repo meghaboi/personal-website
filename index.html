@@ -16,12 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;500;600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-    <script>
-      document.documentElement.classList.add("js-ready");
-    </script>
     <link rel="stylesheet" href="styles.css" />
     <script type="application/ld+json">
       {
@@ -40,17 +37,13 @@
     </script>
   </head>
   <body>
-    <div class="scroll-progress" aria-hidden="true"></div>
-
     <header class="site-header" id="top">
       <nav class="navbar container" aria-label="Primary">
-        <a href="#top" class="brand" aria-label="Meghanadh Pamidi Home">
-          <span class="brand-gold">MEGHANADH</span>
-          <span class="brand-cream">PAMIDI</span>
-        </a>
+        <a href="#top" class="brand" aria-label="Meghanadh Pamidi Home">MEGHANADH //</a>
 
         <ul class="nav-links desktop-nav">
           <li><a href="#projects">Work</a></li>
+          <li><a href="#blogs">Blog</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -74,42 +67,37 @@
     <aside class="mobile-sidebar" id="mobile-sidebar" aria-hidden="true">
       <button class="sidebar-close" type="button" aria-label="Close navigation">X</button>
       <ul class="mobile-nav-links">
-        <li><a href="#projects" style="--item: 0">Work</a></li>
-        <li><a href="#about" style="--item: 1">About</a></li>
-        <li><a href="#contact" style="--item: 2">Contact</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#blogs">Blog</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </aside>
 
     <main>
       <section class="hero" id="home">
-        <svg class="hero-art" viewBox="0 0 1200 800" aria-hidden="true">
-          <path d="M110 90 L520 90 L520 460 L110 460 Z" />
-          <path d="M680 180 L1040 180 L1040 620 L680 620 Z" />
-          <path d="M220 620 L500 340 L780 620" />
-        </svg>
+        <div class="hero-deco square-1" aria-hidden="true"></div>
+        <div class="hero-deco circle-1" aria-hidden="true"></div>
+        <div class="hero-deco badge-1" aria-hidden="true">SINCE AGE 13</div>
 
         <div class="container hero-content">
-          <p class="hero-eyebrow">HYDERABAD, IN &middot; DEVELOPER</p>
+          <p class="hero-eyebrow">HYDERABAD, IN // DEVELOPER</p>
           <h1 class="hero-title">
-            <span class="hero-line" style="--line-delay: 0s">Game Dev.</span>
-            <span class="hero-line" style="--line-delay: 0.16s">AI Engineer.</span>
-            <span class="hero-line" style="--line-delay: 0.32s">Builder.</span>
+            <span class="hero-line">GAME DEV.</span>
+            <span class="hero-line">AI ENGINEER.</span>
+            <span class="hero-line">BUILDER.</span>
           </h1>
           <p class="hero-subtext">
             Self-taught since 13. I build games, train models, and write the backend that holds it all together.
           </p>
-          <a class="hero-cta" href="#projects">See My Work &rarr;</a>
-        </div>
-
-        <div class="scroll-indicator" aria-hidden="true">
-          <span></span>
+          <a class="btn" href="#projects">SEE MY WORK &rarr;</a>
         </div>
       </section>
 
-      <section class="about section-light" id="about">
+      <section class="about" id="about">
         <div class="container about-layout">
           <div class="about-text reveal-on-scroll">
-            <p class="about-quote">"Dropped out at 13. Been building ever since."</p>
+            <p class="about-quote">"DROPPED OUT AT 13. BEEN BUILDING EVER SINCE."</p>
             <p class="about-description">
               I started with game dev because I wanted to make the games I could not find. That obsession grew into AI
               pipelines, backend systems, and whatever the next interesting problem turned out to be. Based in
@@ -119,37 +107,37 @@
 
           <div class="stats-grid">
             <article class="stat-chip reveal-on-scroll">
-              <p class="stat-value">4+ Years</p>
+              <p class="stat-value">4+ YEARS</p>
               <p class="stat-label">Building</p>
             </article>
             <article class="stat-chip reveal-on-scroll">
-              <p class="stat-value">Game Dev</p>
+              <p class="stat-value">GAME DEV</p>
               <p class="stat-label">Where it started</p>
             </article>
             <article class="stat-chip reveal-on-scroll">
-              <p class="stat-value">AI + Backend</p>
+              <p class="stat-value">AI + BACKEND</p>
               <p class="stat-label">Where it went</p>
             </article>
             <article class="stat-chip reveal-on-scroll">
-              <p class="stat-value">Hyderabad</p>
+              <p class="stat-value">HYDERABAD</p>
               <p class="stat-label">Based in</p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="projects section-mid" id="projects">
+      <section class="projects" id="projects">
         <div class="container">
-          <h2 class="section-title reveal-on-scroll">Work</h2>
+          <h2 class="section-title reveal-on-scroll">THE <span>WORK</span></h2>
 
           <div class="projects-grid">
-            <article class="project-card project-card-featured reveal-on-scroll">
+            <article class="project-card reveal-on-scroll">
               <p class="project-index">01</p>
               <div class="project-head">
                 <h3>Nayaya AI</h3>
-                <span class="project-status">Live Repo</span>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">TypeScript &middot; React &middot; Gemini</p>
+              <p class="project-tag">TypeScript // React // Gemini</p>
               <p class="project-copy">
                 AI platform built for lawyers and law firms. Handles legal research, document analysis, and case prep
                 like a junior associate that never sleeps.
@@ -157,13 +145,13 @@
               <a href="https://github.com/meghaboi/nayaya-ai" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
 
-            <article class="project-card project-card-featured reveal-on-scroll">
+            <article class="project-card reveal-on-scroll">
               <p class="project-index">02</p>
               <div class="project-head">
                 <h3>MUNEIGO</h3>
-                <span class="project-status">Production-Ready</span>
+                <span class="project-status">Ready</span>
               </div>
-              <p class="project-tag">TypeScript &middot; Node.js &middot; PostgreSQL &middot; Docker</p>
+              <p class="project-tag">TypeScript // Node // Postgres // Docker</p>
               <p class="project-copy">
                 Full-stack AI tool for Model UN delegates with research dossiers, speech writing, counterarguments,
                 admin dashboard, JWT auth, and Docker deployment.
@@ -175,9 +163,9 @@
               <p class="project-index">03</p>
               <div class="project-head">
                 <h3>Telugu Social</h3>
-                <span class="project-status">Live Repo</span>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">Next.js &middot; Supabase &middot; TypeScript</p>
+              <p class="project-tag">Next.js // Supabase // TypeScript</p>
               <p class="project-copy">
                 Community platform for Telugu Gen Z with phone OTP auth, city-based profiles, posts, reactions,
                 moderation queue, and forum workflows.
@@ -189,12 +177,12 @@
               <p class="project-index">04</p>
               <div class="project-head">
                 <h3>MinuteTrails</h3>
-                <span class="project-status">Mobile Build</span>
+                <span class="project-status">Mobile</span>
               </div>
-              <p class="project-tag">JavaScript &middot; CSS &middot; Capacitor (Android)</p>
+              <p class="project-tag">JavaScript // CSS // Capacitor</p>
               <p class="project-copy">
-                Mobile-first app with Android build support via Capacitor. Structured as a trail/tracking style product
-                with native packaging.
+                Mobile-first app with Android build support via Capacitor. Structured as a trail and tracking style
+                product with native packaging.
               </p>
               <a href="https://github.com/meghaboi/MinuteTrails" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
@@ -203,12 +191,12 @@
               <p class="project-index">05</p>
               <div class="project-head">
                 <h3>Dialectus AI</h3>
-                <span class="project-status">Live Repo</span>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">TypeScript &middot; HTML &middot; CSS</p>
+              <p class="project-tag">TypeScript // HTML // CSS</p>
               <p class="project-copy">
-                AI debate tool focused on structured arguments, rebuttal practice, and critical-thinking workflows for
-                high-pressure discussions.
+                AI debate tool focused on structured arguments, rebuttal practice, and critical thinking workflows for
+                high pressure discussions.
               </p>
               <a href="https://github.com/meghaboi/dialectus-ai" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
@@ -217,12 +205,12 @@
               <p class="project-index">06</p>
               <div class="project-head">
                 <h3>Saturn Prep</h3>
-                <span class="project-status">In Progress</span>
+                <span class="project-status">WIP</span>
               </div>
               <p class="project-tag">Stack details releasing soon</p>
               <p class="project-copy">
-                SAT prep project slot in active development. Public technical details are being prepared and will be
-                added as the repo matures.
+                SAT prep project in active development. Public technical details are being prepared and will be added
+                as the repo matures.
               </p>
               <a href="https://github.com/meghaboi/saturn-prep" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
@@ -230,29 +218,27 @@
             <article class="project-card reveal-on-scroll">
               <p class="project-index">07</p>
               <div class="project-head">
-                <h3>Modular RAG App v2</h3>
-                <span class="project-status">Live Repo</span>
+                <h3>Modular RAG v2</h3>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">Python &middot; AI</p>
+              <p class="project-tag">Python // AI</p>
               <p class="project-copy">
-                Production-ready modular RAG pipeline for querying custom documents with LLMs. Built for extensibility,
+                Production ready modular RAG pipeline for querying custom documents with LLMs. Built for extensibility,
                 cleaner architecture, and scale.
               </p>
-              <a href="https://github.com/meghaboi/modular_rag_app_v2" target="_blank" rel="noreferrer"
-                >Open Repo &rarr;</a
-              >
+              <a href="https://github.com/meghaboi/modular_rag_app_v2" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
 
             <article class="project-card reveal-on-scroll">
               <p class="project-index">08</p>
               <div class="project-head">
                 <h3>CA MRR Website</h3>
-                <span class="project-status">Live Repo</span>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">HTML &middot; JavaScript &middot; CSS</p>
+              <p class="project-tag">HTML // JavaScript // CSS</p>
               <p class="project-copy">
                 Professional services website build focused on clean storytelling, structured service pages, and
-                conversion-oriented layout decisions.
+                conversion oriented layout decisions.
               </p>
               <a href="https://github.com/meghaboi/ca-mrr-website" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
             </article>
@@ -260,7 +246,7 @@
             <article class="project-card reveal-on-scroll">
               <p class="project-index">09</p>
               <div class="project-head">
-                <h3>Anonymous Student Events App</h3>
+                <h3>Student Events App</h3>
                 <span class="project-status">Private</span>
               </div>
               <p class="project-tag">Private repository</p>
@@ -275,11 +261,11 @@
               <p class="project-index">10</p>
               <div class="project-head">
                 <h3>Neta Navigator</h3>
-                <span class="project-status">Live Repo</span>
+                <span class="project-status">Live</span>
               </div>
-              <p class="project-tag">TypeScript &middot; React &middot; Gemini</p>
+              <p class="project-tag">TypeScript // React // Gemini</p>
               <p class="project-copy">
-                Civic accountability platform: "Know your Leaders. Demand Accountability." Lets users inspect Indian
+                Civic accountability platform. Know your leaders. Demand accountability. Lets users inspect Indian
                 politicians and compare public track records.
               </p>
               <a href="https://github.com/meghaboi/neta-navigator" target="_blank" rel="noreferrer">Open Repo &rarr;</a>
@@ -288,32 +274,68 @@
         </div>
       </section>
 
-      <section class="skills section-base" id="skills">
+      <section class="skills" id="skills">
         <div class="container">
-          <h2 class="section-title reveal-on-scroll">Skills</h2>
+          <h2 class="section-title reveal-on-scroll">THE <span>STACK</span></h2>
 
           <div class="skills-row">
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0s">Python</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.05s">Unity</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.1s">C#</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.15s">Game Development</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.2s">LLMs</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.25s">RAG Pipelines</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Unity</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">Game Dev</span>
+            <span class="skill-tag">LLMs</span>
+            <span class="skill-tag">RAG Pipelines</span>
           </div>
           <div class="skills-row">
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.3s">Vector Databases</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.35s">Backend Development</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.4s">REST APIs</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.45s">Web Development</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.5s">Git</span>
-            <span class="skill-tag reveal-on-scroll" style="--tag-delay: 0.55s">AI Engineering</span>
+            <span class="skill-tag">Vector DBs</span>
+            <span class="skill-tag">Backend</span>
+            <span class="skill-tag">REST APIs</span>
+            <span class="skill-tag">Web Dev</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">AI Engineering</span>
           </div>
         </div>
       </section>
 
-      <section class="contact section-light" id="contact">
+      <section id="blogs">
+        <div class="container">
+          <h2 class="section-title reveal-on-scroll">THE <span>BLOG</span></h2>
+
+          <div class="blogs-grid">
+            <a class="blog-card reveal-on-scroll" href="blog/invested-blindness.html">
+              <span class="blog-number">ESSAY 01</span>
+              <h3>Invested Blindness</h3>
+              <p>
+                The thing that made you successful is the same thing that stops you from adapting. How giants go
+                blind, how to spot it in yourself, and how to flip it into a turnaround thesis.
+              </p>
+              <div class="blog-meta">
+                <span>Strategy</span>
+                <span>Long read</span>
+              </div>
+              <span class="blog-cta">Read essay &rarr;</span>
+            </a>
+
+            <a class="blog-card reveal-on-scroll" href="blog/prompting-matters-more.html">
+              <span class="blog-number">ESSAY 02</span>
+              <h3>Prompting Matters More Now</h3>
+              <p>
+                Everyone thinks prompting is dead because models got smarter. It is the opposite. The ceiling went up,
+                which means the gap between good prompts and lazy prompts got wider than ever.
+              </p>
+              <div class="blog-meta">
+                <span>AI</span>
+                <span>Opinion</span>
+              </div>
+              <span class="blog-cta">Read essay &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
         <div class="container contact-wrap">
-          <h2 class="section-title reveal-on-scroll">Let's Build Something.</h2>
+          <h2 class="section-title reveal-on-scroll">LET'S <span>BUILD</span></h2>
           <p class="contact-copy reveal-on-scroll">Open to freelance projects, collabs, and interesting problems.</p>
 
           <form
@@ -326,16 +348,16 @@
             <input type="hidden" name="subject" value="New message from portfolio" />
             <input type="hidden" name="redirect" value="false" />
 
-            <label for="name">Name</label>
+            <label for="name">NAME</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
 
-            <label for="email">Email</label>
+            <label for="email">EMAIL</label>
             <input id="email" name="email" type="email" autocomplete="email" required />
 
-            <label for="message">Message</label>
+            <label for="message">MESSAGE</label>
             <textarea id="message" name="message" rows="5" required></textarea>
 
-            <button type="submit" class="submit-btn">Send Message &rarr;</button>
+            <button type="submit" class="submit-btn">SEND MESSAGE &rarr;</button>
             <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
           </form>
 
@@ -345,6 +367,12 @@
         </div>
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        &copy; MEGHANADH PAMIDI // BUILT WITH BORDERS AND SHADOWS
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>

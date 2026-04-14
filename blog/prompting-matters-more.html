@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompting Matters More Now | Meghanadh Pamidi</title>
+    <meta name="description" content="Everyone thinks prompting is dead because models got smarter. It is the opposite. The ceiling went up, which means the gap between good and lazy prompts got wider than ever." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container" aria-label="Primary">
+        <a href="../index.html" class="brand">MEGHANADH //</a>
+        <ul class="nav-links desktop-nav">
+          <li><a href="../index.html#projects">Work</a></li>
+          <li><a href="../index.html#blogs">Blog</a></li>
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <article>
+      <div class="blog-header">
+        <div class="container">
+          <a class="back-link" href="../index.html#blogs">&larr; Back to blog</a>
+          <span class="blog-hero-tag">ESSAY 02 // AI</span>
+          <h1 class="blog-title">PROMPTING MATTERS MORE NOW</h1>
+          <div class="blog-byline">
+            <span>By Meghanadh</span>
+            <span>Opinion</span>
+            <span>AI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="blog-body">
+        <div class="container">
+          <p>
+            Every few months somebody tweets a variation of the same take. Prompt engineering is dead. The models got
+            smart enough. You can just ask them things now. The prompt engineers are cooked. The course sellers are
+            cooked. It was a fad.
+          </p>
+
+          <p>
+            I think this is one of the most confidently wrong opinions in tech right now. The opposite is true.
+            Prompting is more important now than it has ever been. Not less. Not the same. More.
+          </p>
+
+          <blockquote>
+            The ceiling went up. The floor did not. That is exactly why the gap between a good prompt and a lazy
+            prompt got wider.
+          </blockquote>
+
+          <h2>The lazy logic</h2>
+
+          <p>The argument against prompting usually goes like this.</p>
+
+          <ul>
+            <li>Early models needed tricks to work at all.</li>
+            <li>New models are smarter and more helpful by default.</li>
+            <li>So the tricks are no longer needed.</li>
+            <li>So prompting is dead.</li>
+          </ul>
+
+          <p>
+            The hidden assumption is that prompting was only ever about squeezing a dumb model into doing something
+            useful. If that were true, then yes, better models would kill the discipline. But that was never what
+            prompting was about. That was the beginner version. The actual job was always to shape the model's
+            behavior, constrain its outputs, feed it the right context, and build something that works at scale on
+            real inputs, not cherry picked ones.
+          </p>
+
+          <p>
+            Better models did not remove that job. They raised the bar on it. When the model is weak, a decent
+            prompt gets you a decent result. When the model is strong, a decent prompt gets you a result that looks
+            right and is wrong in a way you cannot see without a real eval. That is worse, not better.
+          </p>
+
+          <h2>What actually happened in 2025 and 2026</h2>
+
+          <p>Let me ground this in what people who ship AI products have actually seen.</p>
+
+          <h3>1. Job demand went up, not down</h3>
+          <p>
+            If prompting was dying, you would expect job postings to fall off a cliff. Instead prompt engineering
+            and adjacent roles saw a roughly two hundred and fifty percent jump in job postings in the last year. Not
+            just at AI labs. At banks. At law firms. At hospitals. At marketing agencies. Every industry that is
+            integrating LLMs is hiring people who understand how to talk to them properly.
+          </p>
+
+          <h3>2. The discipline renamed itself</h3>
+          <p>
+            The word people use more often now is context engineering. Same muscle, bigger surface area. It is no
+            longer just about one prompt. It is about everything that lands in the model's context window. System
+            instructions. Retrieved documents. Tool definitions. Tool results. Conversation history. Memory. Examples.
+            Output format schemas. All of it has to be designed, ordered, pruned, cached, and evaluated.
+          </p>
+
+          <h3>3. The ceiling got higher</h3>
+          <p>
+            The techniques that got you decent results in 2024 unlock ten times more capability in 2026. If you know
+            how to use them. That is the catch. The people who ignored prompting because "the model is smart enough"
+            are losing quietly to the people who kept practicing.
+          </p>
+
+          <div class="callout">
+            <strong>The uncomfortable truth.</strong> Most production AI bugs are not model bugs. They are prompt
+            bugs, context bugs, or eval bugs. The model is doing what you asked. You are just asking the wrong thing
+            and not noticing because it sounds confident.
+          </div>
+
+          <hr />
+
+          <h2>Why smarter models make prompting harder</h2>
+
+          <p>
+            This is the part people miss. When a model is dumb, the failure is obvious. Wrong language. Wrong
+            structure. Wrong answer. You can see it. You fix it. You move on.
+          </p>
+
+          <p>
+            When a model is smart, the failure is plausible. It looks right. It uses the right vocabulary. It cites
+            sources that sound reasonable. And then it is wrong in a specific, load bearing way buried in paragraph
+            four. If you are not running evals, you will never catch it. If you are not shaping the prompt
+            carefully, you cannot even reduce the rate.
+          </p>
+
+          <p>
+            That is the gap. The stronger the model, the more dangerous a careless prompt becomes, because carelessness
+            now ships.
+          </p>
+
+          <h2>What prompting actually is in 2026</h2>
+
+          <p>
+            If you still think of prompting as "clever words in a text box," you are two years behind. Here is what
+            the job actually looks like when you are shipping production AI.
+          </p>
+
+          <h3>Context engineering</h3>
+          <p>
+            Deciding what goes into the window and what does not. Most production quality problems are really context
+            problems. Too much junk. Too little signal. Wrong order. Stale cache. Retrieved chunks that are topically
+            related but semantically useless. Fixing the prompt without fixing the context is like tuning a carburetor
+            with bad fuel.
+          </p>
+
+          <h3>Structured output</h3>
+          <p>
+            Forcing JSON. Forcing schemas. Using tool calling and function calling to constrain shape so downstream
+            code can trust the output. A huge share of real world prompt work is now just making the model's output
+            parseable and verifiable.
+          </p>
+
+          <h3>Prompt caching</h3>
+          <p>
+            Once prompts got long, cache layout started to matter. Stable prefix first, variable stuff last. Get this
+            wrong and you burn money on every request. Get it right and you cut latency and cost by large multiples
+            on the same exact model.
+          </p>
+
+          <h3>Eval driven development</h3>
+          <p>
+            You do not tune a prompt by eyeballing three responses and declaring victory. You build a test set. You
+            run the prompt against it. You track pass rate. You change one thing. You run it again. If the pass rate
+            did not move, the change was superstition. This is the part that separates hobbyists from people who
+            actually ship.
+          </p>
+
+          <h3>Retrieval design</h3>
+          <p>
+            RAG is prompting with extra steps. How you chunk, how you embed, how you rerank, how you cite, how you
+            format retrieved content inside the prompt. Every decision changes output quality more than the model
+            choice does. A weaker model with great retrieval will beat a stronger model with lazy retrieval every
+            time.
+          </p>
+
+          <h3>Multi step agents</h3>
+          <p>
+            Once you hand the model tools and let it loop, prompting is no longer one turn. You are designing a tiny
+            program written in English. System prompt is the runtime. Tools are the standard library. Memory is the
+            heap. If you cannot think about it that way, your agent will go in circles and you will blame the model.
+          </p>
+
+          <hr />
+
+          <h2>The gap is widening, not closing</h2>
+
+          <p>
+            Here is the thing that finally convinced me to write this. I have watched two kinds of builders working
+            with the same frontier model on the same problem.
+          </p>
+
+          <p>
+            Builder A types a question and posts the answer. It is fine. It looks smart. It is often wrong in small
+            ways and they do not notice because they are not checking.
+          </p>
+
+          <p>
+            Builder B writes a system prompt that defines a role and constraints. Feeds in retrieved context with
+            citations. Forces the model to produce a structured plan before the final answer. Validates the output
+            against a schema. Runs it against an eval set they wrote last week. Iterates on the one line that was
+            failing. Ships.
+          </p>
+
+          <p>
+            Same model. Same API key. Same hour of the day. Builder B gets ten times the output quality and half the
+            cost at scale. The gap between them is not talent. It is practice. It is the exact thing people keep
+            declaring dead.
+          </p>
+
+          <h2>What to actually do about it</h2>
+
+          <ul>
+            <li>Stop treating prompts as throwaway text. Put them in version control like code.</li>
+            <li>Write evals before you tune. Three to five example inputs with expected properties is enough to
+              start.</li>
+            <li>Force structured output every time the output will touch another piece of code.</li>
+            <li>Learn prompt caching on the API you actually use. Put stable stuff first.</li>
+            <li>Measure cost per task, not cost per token. A cheaper model with a tighter prompt often wins.</li>
+            <li>Read the system prompts of tools you like. Most of them leak in the docs or community examples.</li>
+            <li>When something breaks, ask "what did the model actually see" before you ask "why is the model dumb."</li>
+          </ul>
+
+          <h2>Closing</h2>
+
+          <p>
+            Saying prompting is dead in 2026 is like saying programming died when compilers got better. The thing you
+            are pointing at got easier. The thing you should be pointing at, the full stack of context, constraints,
+            tools, and evaluation, got harder and more valuable.
+          </p>
+
+          <p>
+            Models are going to keep getting smarter. Good. That is not bad news for prompting. That is more leverage
+            for the people who actually learned how to wield it.
+          </p>
+
+          <blockquote>
+            The models got stronger. The people who knew how to talk to them got even stronger. Everyone else got a
+            false sense of security. That is the trade.
+          </blockquote>
+
+          <h2>Sources</h2>
+          <ul>
+            <li><a href="https://www.ibm.com/think/prompt-engineering" target="_blank" rel="noreferrer">IBM // The 2026 Guide to Prompt Engineering</a></li>
+            <li><a href="https://cloud.google.com/discover/what-is-prompt-engineering" target="_blank" rel="noreferrer">Google Cloud // Prompt Engineering for AI Guide</a></li>
+            <li><a href="https://www.lakera.ai/blog/prompt-engineering-guide" target="_blank" rel="noreferrer">Lakera // Ultimate Guide to Prompt Engineering in 2026</a></li>
+            <li><a href="https://dev.to/mteheran/prompt-engineering-is-not-optional-in-2026-4m4m" target="_blank" rel="noreferrer">DEV // Prompt Engineering Is Not Optional in 2026</a></li>
+            <li><a href="https://www.datacamp.com/blog/what-is-prompt-engineering-the-future-of-ai-communication" target="_blank" rel="noreferrer">DataCamp // What is Prompt Engineering</a></li>
+            <li><a href="https://www.tredence.com/blog/prompt-engineering-skill-ai-professionals-2026" target="_blank" rel="noreferrer">Tredence // Prompt Engineering in 2026</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="blog-footer-nav">
+        <div class="container">
+          <a href="invested-blindness.html">&larr; READ ESSAY 01</a>
+        </div>
+      </div>
+    </article>
+
+    <footer class="site-footer">
+      <div class="container">&copy; MEGHANADH PAMIDI // BUILT WITH BORDERS AND SHADOWS</div>
+    </footer>
+  </body>
+</html>
