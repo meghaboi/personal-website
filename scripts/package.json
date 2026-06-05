@@ -1,0 +1,12 @@
+{
+  "name": "og-generator",
+  "version": "1.0.0",
+  "description": "OG image generator for meghaboi.qzz.io",
+  "main": "generate-og.js",
+  "scripts": {
+    "generate": "node generate-og.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.53"
+  }
+}
