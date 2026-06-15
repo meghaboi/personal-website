@@ -993,6 +993,9 @@ section {
   gap: 40px;
   align-items: start;
 }
+.exp-body.no-media {
+  grid-template-columns: 1fr;
+}
 @media (max-width: 1024px) {
   .exp-body {
     grid-template-columns: 1fr;
