@@ -596,11 +596,13 @@
           <form
             id="contact-form"
             class="contact-form reveal-on-scroll"
-            action="https://api.web3forms.com/submit"
+            action="https://formsubmit.co/ajax/meghanadh.pamidi@gmail.com"
             method="POST"
           >
-            <input type="hidden" name="access_key" value="eddec169-eee4-4766-82fc-b24af02dcced" />
-            <input type="hidden" name="subject" value="New message from portfolio" />
+            <input type="hidden" name="_subject" value="New message from portfolio" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none" />
 
             <label for="name">NAME</label>
             <input id="name" name="name" type="text" autocomplete="name" required />

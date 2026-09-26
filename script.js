@@ -65,7 +65,7 @@ contactForm?.addEventListener("submit", async (e) => {
       body: JSON.stringify(payload),
     });
     const json = await res.json().catch(() => ({}));
-    if (res.ok && json.success) {
+    if (res.ok && String(json.success) === "true") {
       contactForm.reset();
       contactForm.hidden = true;
       if (formSuccess) formSuccess.hidden = false;
