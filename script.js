@@ -40,22 +40,44 @@ document.querySelectorAll(".reveal-on-scroll").forEach((el) => io.observe(el));
 const contactForm = document.getElementById("contact-form");
 const formMessage = document.getElementById("form-message");
 const formSuccess = document.getElementById("form-success");
+const submitBtn = contactForm?.querySelector(".submit-btn");
+
+function setFormMessage(text) {
+  if (formMessage) formMessage.textContent = text;
+}
 
 contactForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
-  if (formMessage) formMessage.textContent = "Sending...";
+  if (!contactForm.reportValidity()) return;
+
+  const originalLabel = submitBtn?.textContent;
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = "SENDING...";
+  }
+  setFormMessage("");
+
   try {
-    const data = new FormData(contactForm);
-    const res = await fetch(contactForm.action, { method: "POST", body: data });
-    const json = await res.json();
-    if (json.success) {
+    const payload = Object.fromEntries(new FormData(contactForm));
+    const res = await fetch(contactForm.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok && json.success) {
       contactForm.reset();
       contactForm.hidden = true;
       if (formSuccess) formSuccess.hidden = false;
     } else {
-      if (formMessage) formMessage.textContent = "Something went wrong. Try again.";
+      setFormMessage(json.message || `Could not send (error ${res.status}). Please try again.`);
     }
   } catch {
-    if (formMessage) formMessage.textContent = "Network error. Try again.";
+    setFormMessage("Network error. Check your connection and try again.");
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+    }
   }
 });
